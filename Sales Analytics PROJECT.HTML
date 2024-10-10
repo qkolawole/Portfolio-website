@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analytics Dashboard - BI Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            padding: 1rem;
+            /* position: sticky; */
+            top: 0;
+            z-index: 1000;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            background: #2c3e50;
+        }
+        li{
+            list-style-type:decimal
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1920/400');
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .chart-container {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="back-to-portfolio">⬅️ Back to Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="back-to-portfolio">Go to Project's Github ➡️</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="project-header">
+        <h1>Sales Analytics Dashboard</h1>
+        <p>A comprehensive solution for data-driven sales decisions</p>
+    </div>
+
+    <div class="container">
+        <section class="project-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="key-metrics">
+                <h4>This project is a sales and profitability analysis for a retail or office 
+                    supply company. The dashboard provides insights into sales performance, profit distribution 
+                    across product categories and regions, and customer analytics. The goal is to give 
+                    stakeholders a comprehensive view of the business's financial health and identify areas for improvement.</h4>
+            </div><br>
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The analysis is presented through a data visualization dashboard, built using a business 
+                        intelligence tool; Tableau.The dashboard incorporates 
+                        various chart types:</p><br>
+                    <ul>
+                        <li>Line charts for trend analysis of sales, profit, and customer metrics</li>
+                        <li>Bar charts for sales by sub-category</li>
+                        <li>Heat map for profit by subcategory and region</li>
+                        <li>Table for top customer analysis</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="tech1.jpg" alt="Problem visualization" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Challenges</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>These are the challenges encountered during the analysis</h3><br>
+                    <ul>
+                        <li>Data integration from various sources</li>
+                        <li>Ensuring data accuracy and consistency across different metrics</li>
+                        <li>Designing an intuitive dashboard that conveys key insights effectively</li>
+                        <li>Balancing the level of detail with overall clarity in the visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Solution</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The implemented dashboard addresses these challenges by:</h3>
+                    <ul>
+                        <li>Providing high-level KPIs (sales, profit, customers) with month-over-month comparisons</li>
+                        <li>Breaking down sales and profit data by product categories and regions</li>
+                        <li>Highlighting top-performing customers and their contribution to profits</li>
+                        <li>Using color coding and varied chart types to make data easily digestible</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="Sales.jpeg" alt="Technical architecture diagram" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Projected Results & Impacts</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>Impacts Expected</h3>
+                    <ul>
+                        <li>Improved decision-making through readily available performance metrics</li>
+                        <li>Identification of top-performing and underperforming product categories and regions</li>
+                        <li>Enhanced customer relationship management by focusing on high-value clients</li>
+                        <li>Potential for increased sales and profitability by leveraging insights from the analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>The importance of presenting both high-level and detailed views of data</li>
+                        <li>The value of integrating multiple data sources for comprehensive business insights</li>
+                        <li>The effectiveness of visual representations in conveying complex information quickly</li>
+                        <li>The need for ongoing data analysis to track performance and identify trends over time</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Summary</h3>
+                    <ul>
+                        <p>This analysis provides a solid foundation for data-driven decision-making within the 
+                            organization. Future iterations could potentially include more predictive analytics 
+                            or deeper dives into specific areas of interest identified through this overview.</p>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+    </div>
+</body>
+</html>

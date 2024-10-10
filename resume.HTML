@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Business Intelligence Analyst</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #213140;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .social-links-nav {
+            margin-left: auto;
+        }
+        .social-links-nav a {
+            color: white;
+            font-size: 1.2em;
+            margin-left: 20px;
+        }
+        .social-links-nav a:hover {
+            color: #007bff;
+        }
+
+
+        .download-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #454545;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .download-button i {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .download-button {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Resume Specific Styles */
+        .resume-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resume-sidebar {
+            background-color: #454545;
+            color: white;
+            padding: 2rem;
+            width: 300px;
+        }
+
+        .resume-main {
+            flex: 1;
+            padding: 2rem;
+            background-color: white;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h2 {
+            font-size: 20px;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #666;
+            padding-bottom: 0.5rem;
+        }
+
+        .certification-item {
+            margin-bottom: 1rem;
+        }
+
+        .main-name {
+            font-size: 40px;
+            margin-bottom: 1rem;
+            padding: 1rem 0;
+            color: black;
+        }
+
+        .summary-statement,
+        .core-qualifications,
+        .work-experience,
+        .conference-presentations {
+            margin-bottom: 2rem;
+        }
+
+        .work-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .work-item h3 {
+            font-weight: bold;
+        }
+
+        .work-item .date {
+            font-style: italic;
+            color: #666;
+        }
+
+        ul {
+            /* list-style-type: none; */
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rest of your existing styles */
+
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+            }
+
+            .resume-sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="back-to-portfolio">← Back to Portfolio</a></li>
+
+            <div class="social-links-nav">
+                <a href="#">Reach out to me here</i></a>
+                <a href="https://www.linkedin.com/in/qudus-kolawole-581b29222"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/qkolawole"><i class="fab fa-github"></i></a>
+                <!-- <a href="qkolawole01@gmail.com"><i class="fas fa-envelope"></i></a> -->
+                <a href="mailto:qkolawole01@gmail.com?Subject=Some%20subject"><i class="fas fa-envelope"></i></a>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Your existing resume content -->
+    <div class="resume-container">
+        <!-- ... (keeping all existing content) ... -->
+    </div>
+
+    <!-- Add the download button -->
+    <a href="Qudus Resume.pdf" class="download-button" download="Qudus_Kolawole_Resume.pdf">
+        <i class="fas fa-download"></i>
+        Download PDF
+    </a>
+    <!-- Your existing hero section and navigation -->
+
+    <div class="resume-container">
+        <div class="resume-sidebar">
+            <img src="profile-pic.png" alt="Profile Picture" class="profile-image">
+            
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> qkolawole01@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 0777892176</p>
+                <p><i class="fas fa-map-marker-alt"></i> East London, London E16 2TU</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>EDUCATION</h2>
+                <ul><li>MSc. Business Administration</li>
+                <p>University of East London, London UK</p>
+                <li>BSc. Food Science and Technology</li>
+                <p>Kwara State University. Ilorin, Nigeria.</p>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>CERTIFICATIONS</h2>
+                <div class="certification-item">
+                    <p>Professional Data Analyst - Brainstation - 2024</p>
+                </div>
+                <div class="certification-item">
+                    <p>Chartered Management Institute (CMI) - 2024</p>
+                </div>
+                <div class="certification-item">
+                    <p>Basic Leadership Training - Institute for National Transformation (INT) - 2022</p>
+                </div>
+                <div class="certification-item">
+                    <p>ACT Awareness E-learning - Highfield E-learning - September 2023</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Technical Skills</h2>
+                <ul><li>Quality Management System</li>
+                    <li>Microsoft Excel & Power BI</li>
+                    <li>Tableau</li>
+                    <li>SQL</li>
+                    <li>Market Research</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Soft Skills</h2>
+                <ul><li>Problem Solving</li>
+                    <li>Critical Thinking</li>
+                    <li>Teamwork</li>
+                    <li>Excellent Written and Oral Communication</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="resume-main">
+            <h1 class="main-name">QUDUS KOLAWOLE</h1>
+
+            <div class="summary-statement">
+                <h2 class="section-title">PROFILE</h2>
+                <p>Experienced Business Intelligence Analyst with a proven track record of developing comprehensive data solutions and driving data-informed decision-making. Combining technical expertise in SQL, Power BI, and advanced analytics with strong business acumen to deliver actionable insights and optimize business processes.</p>
+            </div>
+
+            <div class="core-qualifications">
+                <h2 class="section-title">CORE QUALIFICATIONS</h2>
+                <ul>
+                    <li>Advanced proficiency in SQL, Spreadsheets, and data visualization tools (Power BI, Tableau)</li>
+                    <li>Expert in data preparation, data manipulation, and data modeling</li>
+                    <li>Strong analytical and problem-solving skills with attention to detail</li>
+                    <li>Excellent communication skills for translating complex data into actionable insights</li>
+                </ul>
+            </div>
+
+            <div class="work-experience">
+                <h2 class="section-title">WORK EXPERIENCE</h2>
+                
+                <div class="work-item">
+                    <h3>Store Supervisor</h3>
+                    <p class="date">Mar 2023 - Present</p>
+                    <p>Angel’s Bakery, London</p>
+                    <ul>
+                        <li>Managed daily store operations, ensuring a high level of customer service and smooth functioning of the store.</li>
+                        <li>Analysed customer feedback and implemented improvements in service delivery and product offerings.</li>
+                        <li>Optimized stock levels in coordination with the inventory management team, minimizing stockouts and excess inventory.</li>
+                        <li>Monitored sales performance, identified areas for improvement, and recommended strategies to increase sales.</li>
+                        <li>Trained and supervised staff, fostering a positive team environment and enhancing employee productivity.</li>
+                    </ul>
+                </div>
+
+                <div class="work-item">
+                    <h3>Quality Assurance Officer</h3>
+                    <p class="date">Dec 2020 - Feb 2023</p>
+                    <p>May and Baker Pharmaceutical, Lagos, Nigeria</p>
+                    <ul>
+                        <li>Assisted with the review and analysis of technical documents, including batch records, manufacturing procedures, and specifications.</li>
+                        <li>Participated in quality audits and inspections of manufacturing facilities and laboratories.</li>
+                        <li>Conducted data analysis and trend monitoring to identify potential quality issues.</li>
+                        <li>Prepared and maintained quality-related documentation, such as deviation reports and corrective action plans.</li>
+                        <li>Supported the development and implementation of new quality control procedures.</li>
+                        <li>Stayed updated on current regulatory requirements and industry best practice.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conference-presentations">
+                <h2 class="section-title">PROJECTS & PRESENTATIONS</h2>
+                <ul>
+                    <li>Brainstation Bootcamp 2024: " Becoming a Data Analyst "</li>
+                    <li>Brainstation Bootcamp 2024 Capstone Project: "Analysis of MSFT Stock Data"</li>
+                    <li>MBA Dissertation 2024: "The role of BI Tools & Predictive Analytics in Ecommerce"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your existing footer -->
+</body>
+</html>

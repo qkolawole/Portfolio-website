@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Analysis - BI Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            background: #2c3e50;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1920/400');
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .chart-container {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="back-to-portfolio">⬅️ Back to Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="back-to-portfolio">Go to Project's Github ➡️</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="project-header">
+        <h1>Customer Segmentation Analysis</h1>
+        <p>Transforming customer data into actionable marketing strategies</p>
+    </div>
+
+    <div class="container">
+        <section class="project-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="key-metrics">
+                <h4>This project focuses on customer segmentation analysis for a company operating in 
+                    Australia. The analysis aims to categorize customers based on various attributes including age, wealth, industry, 
+                     location, purchasing behavior, and loyalty. The goal is to gain insights into 
+                     different customer groups to inform targeted marketing strategies and improve 
+                     customer relationship management.</h4>
+            </div><br>
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The analysis is presented through a comprehensive dashboard, likely built using a business intelligence 
+                        tool such as Tableau. The dashboard integrates multiple data sources and visualization types:</p><br>
+                    <ul>
+                        <li>Bar charts for sales breakdowns by age, wealth segment, industry, and state</li>
+                        <li>Scatter plot for recency vs monetary value analysis</li>
+                        <li>Map visualization for geographic distribution of customers</li>
+                        <li>Tables for top products and customer segmentation details</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="tech2.webp" alt="Problem visualization" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Challenges</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>These are the challenges encountered during the analysis</h3><br>
+                    <ul>
+                        <li>Integrating diverse data sets to create meaningful customer segments</li>
+                        <li>Defining appropriate metrics for segmentation (e.g., recency, monetary value)</li>
+                        <li>Balancing granularity of segmentation with actionable insights</li>
+                        <li>Visualizing complex, multidimensional customer data effectively</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Solution</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The implemented dashboard addresses these challenges by:</h3>
+                    <ul>
+                        <li>Providing multiple perspectives on customer segmentation (demographic, geographic, behavioral)</li>
+                        <li>Using a recency vs monetary value scatter plot to visualize customer value and engagement</li>
+                        <li>Clearly defining customer segments (Platinum, Very Loyal, Becoming Loyal, etc.)</li>
+                        <li>Combining high-level overviews with detailed breakdowns of sales and customer counts</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="Sales.jpeg" alt="Technical architecture diagram" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Projected Results & Impacts</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>Impacts Expected</h3>
+                    <ul>
+                        <li>More targeted marketing campaigns based on customer segment characteristics</li>
+                        <li>Improved customer retention strategies, especially for high-value segments</li>
+                        <li>Enhanced product development focused on top-selling items for key segments</li>
+                        <li>Potential for increased sales and customer lifetime value through personalized approaches</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>The importance of multi-faceted customer segmentation for a comprehensive understanding</li>
+                        <li>The value of visualizing customer data geographically for regional insights</li>
+                        <li>The effectiveness of combining behavioral (recency, monetary) and demographic segmentation</li>
+                        <li>The need for clear, actionable customer segments to drive business strategies</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Summary</h3>
+                    <ul>
+                        <p>This customer segmentation analysis provides a strong foundation for data-driven marketing and 
+                            customer relationship management. Future iterations could potentially include predictive 
+                            analytics to forecast customer behavior or churn risk, and more detailed analysis of segment-specific 
+                            preferences and purchasing patterns.</p>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+    </div>
+</body>
+</html>

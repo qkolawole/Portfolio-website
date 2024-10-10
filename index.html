@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qudus Kolawole Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Reduced height */
+            min-height: 400px; /* Minimum height for content */
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+        }
+
+        .banner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+        }
+
+        .banner:nth-child(1) { background-color: #89CFF0; }
+        .banner:nth-child(2) { background-color: #5072A7; transform: translateX(100%); }
+        .banner:nth-child(3) { background-color: #60a5fa; transform: translateX(200%); }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content {
+            flex: 1;
+            color: white;
+            padding-right: 2rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .description {
+            font-size: 1rem;
+            max-width: 500px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .visualization {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .visualization img {
+            width: 80%;
+            height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-buttons {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 2;
+        }
+
+        .nav-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .arrow-btn:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        #prevBtn { left: 1rem; }
+        #nextBtn { right: 1rem; }
+
+        
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 1rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .header-image img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+        }
+
+        .header-txt {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        header:hover .header-txt {
+            transform: rotateY(360deg);
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 3rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .social-links-nav {
+            margin-left: auto;
+        }
+        .social-links-nav a {
+            color: white;
+            font-size: 1.2em;
+            margin-left: 20px;
+        }
+        .social-links-nav a:hover {
+            color: #007bff;
+        }
+
+        .sections {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project_card_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        #featured {
+            text-align: center;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        } */
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #666;
+        }
+        .project-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tools {
+            text-align: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background-color: #3498db;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .content {
+                padding-right: 0;
+                margin-bottom: 1rem;
+            }
+            .visualization {
+                display: none; /* Hide visualization on mobile to save space */
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            .description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+        .skill{
+            height: auto;
+            display: flex;
+            background: #89CFF0;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-container{
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 15px;
+            padding: 40px;
+        }
+        .skill-container .skill-box{
+            width: 100%;
+            margin: 25px 0;
+        }
+        .skill-box .title{
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: #333;
+        }
+        .skill-box .skill-bar{
+            height: 30px;
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 6px;
+            background: rgba(10, 18, 6, 0.1);
+        }
+        .skill-bar .skill-per{
+            position: relative;
+            display: block;
+            height: 100%;
+            width: 80%;
+            /* border-radius: 6px; */
+            background: #2c3e50;
+            animation: progress 0.4s ease-in-out forwards;
+            opacity: 0;
+        }
+        .skill-per.sql{
+            width: 70%;
+            animation-delay: 0.1s;
+        }
+        .skill-per.tableau{
+            width: 75%;
+            animation-delay: 0.2s;
+        }
+        .skill-per.powerbi{
+            width: 60%;
+            animation-delay: 0.3s;
+        }
+        @keyframes progress {
+            0%{
+                width: 0;
+                opacity: 1;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .skill-per .tooltip{
+            position: absolute;
+            right: -14px;
+            top: -28px;
+            font-size: 9px;
+            font-weight: 500;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: #2c3e50;
+            z-index: 1;
+        }
+        .tooltip::before{
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            height: 10px;
+            width: 10px;
+            z-index: -1;
+            background-color: #2c3e50;
+            transform: translateX(-50%) rotate(45deg);
+
+        }
+        .skill-title{
+            padding-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-image"><img src="profile-pic.png" alt="profile-pic">
+        </div>
+        <div class="header-txt"><h1>Qudus Kolawole</h1>
+        <p>Business Intelligence Analyst</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="resume.HTML">Resume</a></li>
+            <li><a href="#skills">Stack & Skills</a></li>
+
+            <div class="social-links-nav">
+                <a href="#">Reach out to me here</i></a>
+                <a href="https://www.linkedin.com/in/qudus-kolawole-581b29222"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/qkolawole"><i class="fab fa-github"></i></a>
+                <!-- <a href="qkolawole01@gmail.com"><i class="fas fa-envelope"></i></a> -->
+                <a href="mailto:qkolawole01@gmail.com?Subject=Some%20subject"><i class="fas fa-envelope"></i></a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="banner-container">
+        <section class="banner">
+            <div class="container">
+                <div class="content">
+                    <h1 class="title">Hi. I'm Qudus Kolawole</h1>
+                    <h2 class="subtitle">A BI Analyst</h2>
+                    <p class="description">
+                        As a dedicated Business Intelligence Analyst, I transform complex data into 
+                        actionable insights. My expertise lies in uncovering patterns, optimizing 
+                        processes, and driving data-informed decisions.
+                    </p>
+                </div>
+                <div class="visualization">
+                    <img src="profile-pic (1).png" alt="Data visualization example">
+                </div>
+            </div>
+        </section>
+
+        <section class="banner">
+            <div class="container">
+                <div class="content">
+                    <h1 class="title">My Expertise</h1>
+                    <h2 class="subtitle">Data Visualization Specialist</h2>
+                    <p class="description">
+                        Specializing in creating intuitive and impactful data visualizations that 
+                        tell compelling stories. From interactive dashboards to predictive models, 
+                        I leverage various tools and technologies.
+                    </p>
+                </div>
+                <div class="visualization">
+                    <img src="supply-chain-performance-dashboard.png" alt="Expertise visualization">
+                </div>
+            </div>
+        </section>
+
+        <section class="banner">
+            <div class="container">
+                <div class="content">
+                    <h1 class="title">Let's Collaborate</h1>
+                    <h2 class="subtitle">Turning Data into Decisions</h2>
+                    <p class="description">
+                        Looking to enhance your organization's data strategy? I'm passionate about 
+                        collaborating on challenging projects that require innovative solutions.
+                    </p>
+                </div>
+                <div class="visualization">
+                    <img src="charts-6246450_640.png" alt="Collaboration visualization">
+                </div>
+            </div>
+        </section>
+
+        <button id="prevBtn" class="arrow-btn">←</button>
+        <button id="nextBtn" class="arrow-btn">→</button>
+
+        <div class="nav-buttons">
+            <button class="nav-btn active"></button>
+            <button class="nav-btn"></button>
+            <button class="nav-btn"></button>
+        </div>
+    </div>
+
+    <div class="project_card_container">
+        <section id="projects">
+            <h2 id="featured">Featured Projects</h2><br>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="Sales Analytics PROJECT.HTML"><img src="Sales.jpeg" alt="Sales Analytics Dashboard"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Sales Analytics</h3>
+                        <p>Developed a comprehensive sales analytics dashboard to track KPIs and identify trends across multiple regions.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="Customer segmentation analysis.HTML"><img src="Customer.jpeg" alt="Customer Segmentation Analysis"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Customer Segmentation Analysis</h3>
+                        <p>Utilized advanced SQL queries to segment customers based on purchasing behavior and demographics.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="Supply chain Optimization.HTML"><img src="Supply.jpeg" alt="Supply Chain Optimization"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Supply Chain Optimization</h3>
+                        <p>Created interactive visualizations to optimize inventory levels and reduce shipping costs.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="HR Analytics.HTML"><img src="HR.jpeg" alt="HR Analytics"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">HR Analytics</h3>
+                        <p>Designed an HR analytics solution to track employee performance, turnover, and satisfaction metrics.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="Financial Forecasting Model.HTML"><img src="financial.jpeg" alt="Financial Forecasting Model"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Financial Complaints</h3>
+                        <p>Developed a financial forecasting model using historical data to predict future revenue trends.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="Inventory management.HTML"><img src="Inventory.jpeg" alt="Inventory management"></a>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Inventory management</h3>
+                        <p>Developed a comprehensive sales analytics dashboard to track KPIs and identify trends across multiple regions.</p>
+                        <div class="tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="skill" id="skills">
+        <h2 class="skill-title">STACK & SKILLS</h2>
+        <div class="skill-container">
+            <div class="skill-box">
+                <span class="title">EXCEL</span>
+    
+                <div class="skill-bar">
+                    <span class="skill-per excel">
+                        <span class="tooltip">80%</span>
+                    </span>
+                </div>
+            </div>
+    
+            <div class="skill-box">
+                <span class="title">SQL</span>
+    
+                <div class="skill-bar">
+                    <span class="skill-per sql">
+                        <span class="tooltip">70%</span>
+                    </span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <span class="title">TABLEAU</span>
+    
+                <div class="skill-bar">
+                    <span class="skill-per tableau">
+                        <span class="tooltip">75%</span>
+                    </span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <span class="title">POWER BI</span>
+    
+                <div class="skill-bar">
+                    <span class="skill-per powerbi">
+                        <span class="tooltip">60%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/qudus-kolawole-581b29222"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/qkolawole"><i class="fab fa-github"></i></a>
+            <a href="mailto:qkolawole01@gmail.com?Subject=Some%20subject"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2024 BlackBird. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const banners = document.querySelectorAll('.banner');
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentBanner = 0;
+
+        function updateBanners() {
+            banners.forEach((banner, index) => {
+                banner.style.transform = `translateX(${100 * (index - currentBanner)}%)`;
+            });
+
+            navBtns.forEach((btn, index) => {
+                btn.classList.toggle('active', index === currentBanner);
+            });
+        }
+
+        function nextBanner() {
+            currentBanner = (currentBanner + 1) % banners.length;
+            updateBanners();
+        }
+
+        function prevBanner() {
+            currentBanner = (currentBanner - 1 + banners.length) % banners.length;
+            updateBanners();
+        }
+
+        nextBtn.addEventListener('click', nextBanner);
+        prevBtn.addEventListener('click', prevBanner);
+
+        navBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                currentBanner = index;
+                updateBanners();
+            });
+        });
+
+        // Auto-rotate banners every 5 seconds
+        let autoRotate = setInterval(nextBanner, 5000);
+
+        // Pause auto-rotation when user interacts with navigation
+        document.querySelector('.banner-container').addEventListener('mouseenter', () => {
+            clearInterval(autoRotate);
+        });
+
+        document.querySelector('.banner-container').addEventListener('mouseleave', () => {
+            autoRotate = setInterval(nextBanner, 5000);
+        });
+    </script>
+</body>
+</html>

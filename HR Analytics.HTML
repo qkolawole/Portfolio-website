@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Analytics Dashboard - People Intelligence Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #faf7f5;
+        }
+
+        nav {
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            background: #5e3267;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #261928 0%, #8b6f8f 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1920/400') center/cover;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(107, 78, 113, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #6b4e71;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            background: #f0e6f2;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .insight-card {
+            background: linear-gradient(135deg, #f0e6f2 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .insight-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #6b4e71;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-trend {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .trend-up {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+
+        .trend-down {
+            background-color: #fce8e6;
+            color: #c5221f;
+        }
+
+        .chart-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(107, 78, 113, 0.1);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #f0e6f2;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: #6b4e71;
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            background: #f0e6f2;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon i {
+            color: #6b4e71;
+            font-size: 1.5rem;
+        }
+
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .team-member {
+            text-align: center;
+            flex: 0 1 200px;
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f0e6f2;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #f0e6f2;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #6b4e71;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: #6b4e71;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background: #8b6f8f;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="back-to-portfolio">⬅️ Back to Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="back-to-portfolio">Go to Project's Github ➡️</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="project-header">
+        <div class="header-overlay"></div>
+        <h1>People Intelligence Platform</h1>
+        <p>Transforming HR with data-driven insights and predictive analytics</p>
+    </div>
+
+    <div class="container">
+        <section class="project-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="key-metrics">
+                <h4>This HR Analytics project aims to provide a comprehensive overview of the organization's workforce, 
+                    focusing on key metrics such as employee count, turnover, demographics, and departmental distribution. 
+                    The goal is to offer insights that can inform strategic HR decisions, improve talent management, and 
+                    optimize workforce planning.</h4>
+            </div><br>
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The analysis is presented through a data visualization dashboard, likely built using a business 
+                        intelligence tool such as Tableau, excel and SQL. The dashboard incorporates:</p><br>
+                    <ul>
+                        <li>Key performance indicators (KPIs) for overall workforce metrics </li>
+                        <li>Bar charts for employee distribution by department and state</li>
+                        <li>Age distribution chart</li>
+                        <li>Filters for year and location selection</li>
+                    </ul>
+                    <p>Data from various HR systems, including recruitment, employee records, and 
+                        termination data, has been integrated to create this unified view.</p>
+                </div>
+                <div class="chart-container">
+                    <img src="tech4.jpg" alt="Problem visualization" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Challenges</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>These are the challenges encountered during the analysis</h3><br>
+                    <ul>
+                        <li>Integrating data from multiple HR systems and ensuring data consistency</li>
+                        <li>Balancing the need for detailed insights with data privacy concerns</li>
+                        <li>Presenting complex workforce data in an easily digestible format</li>
+                        <li>Ensuring data accuracy, especially for metrics like average tenure and termination rates</li>
+                        <li>Providing actionable insights that can drive HR strategy and decision-making</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Solution</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The implemented dashboard addresses these challenges by:</h3>
+                    <ul>
+                        <li>Offering clear, high-level KPIs for quick understanding of workforce status</li>
+                        <li>Providing breakdowns of employee distribution by department and location</li>
+                        <li>Visualizing age demographics to understand workforce composition</li>
+                        <li>Allowing for data filtering by year and location for more targeted analysis</li>
+                        <li>Presenting both current (active employees) and historical (hired, terminated) data for context</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="Sales.jpeg" alt="Technical architecture diagram" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Projected Results & Impacts</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>Impacts Expected</h3>
+                    <ul>
+                        <li>Improved workforce planning based on clear visibility of departmental and geographic distribution</li>
+                        <li>Enhanced talent management strategies informed by age and tenure data</li>
+                        <li>Better understanding of turnover rates to develop targeted retention strategies</li>
+                        <li>More efficient resource allocation across departments and locations</li>
+                        <li>Data-driven decision-making for HR policies and practices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>The importance of presenting both high-level and detailed HR metrics for comprehensive understanding</li>
+                        <li>The value of visualizing employee distribution across various dimensions (department, location, age)</li>
+                        <li>The need for historical context (hired vs. terminated) in understanding workforce dynamics</li>
+                        <li>The potential for using average tenure data to inform retention and engagement strategies</li>
+                        <li>The significance of geographic data in identifying regional trends and potential areas for growth or optimization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Summary</h3>
+                    <ul>
+                        <p>This HR Analytics dashboard provides a solid foundation for data-driven HR management. 
+                            Future iterations could potentially include more advanced analytics such as predictive 
+                            turnover models, skill gap analyses, or performance metrics correlation studies. Additionally, 
+                            incorporating engagement survey results or diversity and inclusion metrics could provide a 
+                            more holistic view of the organization's human capital.</p>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+    </div>
+</body>
+</html>

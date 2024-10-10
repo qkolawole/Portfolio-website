@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Optimization - Digital Twin Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+        }
+
+        nav {
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            background: #1a237e;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-header {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9)), url('/api/placeholder/1920/400');
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .supply-chain-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: 
+                linear-gradient(90deg, 
+                    transparent 0%, 
+                    transparent 45%, 
+                    #ffffff 50%, 
+                    transparent 55%, 
+                    transparent 100%);
+            animation: chainMove 3s infinite linear;
+        }
+
+        @keyframes chainMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a237e;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: #1a237e;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #1a237e;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            flex: 1;
+            margin: 0 1rem;
+            text-align: center;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: #e8eaf6;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-item i {
+            margin-right: 5px;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+            }
+            
+            .timeline-item {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="back-to-portfolio">⬅️ Back to Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="back-to-portfolio">Go to Project's Github ➡️</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="project-header">
+        <div class="supply-chain-animation"></div>
+        <h1>Supply Chain Optimization</h1>
+        <p>Revolutionizing Logistics</p>
+    </div>
+
+    <div class="container">
+        <section class="project-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="key-metrics">
+                <h4>This project aims to optimize the supply chain for a retail company. By analyzing sales patterns, order volumes, 
+                    and customer segments, the goal is to improve inventory management, reduce costs, 
+                    and enhance overall supply chain efficiency.</h4>
+            </div><br>
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>The analysis is presented through a data visualization dashboard, built using a business 
+                        intelligence tool; Tableau.The dashboard incorporates 
+                        various chart types:</p><br>
+                    <ul>
+                        <li>KPI metrics for total orders, profit, sales, quantity, and discount rate</li>
+                        <li>Line chart for monthly order trends</li>
+                        <li>Bar chart for sales by department</li>
+                        <li>Pie charts for top categories by quantity and customer segments</li>
+                        <li>Tables for top/bottom customers by profit and top cities</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="tech3.jpg" alt="Problem visualization" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Challenges</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>These are the challenges encountered during the analysis</h3><br>
+                    <ul>
+                        <li>Aligning inventory levels with fluctuating demand across different product categories</li>
+                        <li>Managing supply chain for diverse customer segments (Home Office, Consumer, Corporate)</li>
+                        <li>Optimizing distribution to top cities while maintaining service to all locations</li>
+                        <li>Adapting supply chain to seasonal variations in order volume</li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Solution</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The implemented dashboard addresses these challenges by:</h3>
+                    <ul>
+                        <li>Use monthly order trends to forecast demand and adjust inventory levels</li>
+                        <li>Analyze sales by department to optimize supplier relationships and stock allocation</li>
+                        <li>Leverage top category data to prioritize inventory and streamline logistics for high-volume products</li>
+                        <li>Use customer segment information to tailor supply chain strategies for different markets</li>
+                        <li>Optimize distribution networks based on sales volumes in top cities</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="Sales.jpeg" alt="Technical architecture diagram" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Projected Results & Impacts</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>Impacts Expected</h3>
+                    <ul>
+                        <li>Improved inventory turnover rates by aligning stock levels with demand patterns</li>
+                        <li>Reduced logistics costs through optimized distribution to key cities and customer segments</li>
+                        <li>Enhanced supplier relationships focused on top-selling departments and categories</li>
+                        <li>Improved customer satisfaction through better product availability and reduced stockouts</li>
+                        <li>Increased profitability by minimizing holding costs and optimizing discount rates</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>The importance of integrating sales and customer data into supply chain decision-making</li>
+                        <li>The value of segmenting supply chain strategies based on customer types and geographic locations</li>
+                        <li>The need for flexible supply chain processes to handle seasonal variations in order volume</li>
+                        <li>The potential for using top customer data to develop specialized supply chain solutions for key accounts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Summary</h3>
+                    <ul>
+                        <p>This analysis provides a foundation for data-driven supply chain optimization. Future iterations could 
+                            incorporate more direct supply chain metrics such as lead times, inventory levels, and logistics 
+                            costs to provide a more comprehensive view of supply chain performance.</p>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+    </div>
+</body>
+</html>

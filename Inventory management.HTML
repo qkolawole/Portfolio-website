@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory Management System - AI & IoT Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f5f7fa;
+        }
+
+        nav {
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            background: #1b5e20;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.1) 50%, transparent 52%);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(27, 94, 32, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1b5e20;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: #43a047;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #ffffff 0%, #e8f5e9 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #c8e6c9;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #43a047;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: #f1f8e9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #c8e6c9;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #c8e6c9;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon i {
+            color: #2e7d32;
+            font-size: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background: #f1f8e9;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid #c8e6c9;
+        }
+
+        .tech-item i {
+            margin-right: 8px;
+            color: #43a047;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: #43a047;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background: #2e7d32;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="back-to-portfolio">⬅️ Back to Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="back-to-portfolio">Go to Project's Github ➡️</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="project-header">
+        <div class="header-pattern"></div>
+        <h1>Smart Inventory Management System</h1>
+        <p>Real-Time Inventory Optimization</p>
+    </div>
+
+    <div class="container">
+        <section class="project-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="key-metrics">
+                <h4>The Inventory Management Dashboard is a data visualization solution designed to provide 
+                    comprehensive insights into product performance, regional sales, and profit margins across 
+                    different warehouse locations. The dashboard integrates multiple data points to offer a 
+                    holistic view of the business's inventory and sales performance, enabling data-driven 
+                    decision-making for inventory optimization and sales strategy..</h4>
+            </div><br>
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">Technical Implementation</h2>
+                    <p>Data Visualization Components:</p><br>
+                    <ul>
+                        <li>Scatter plot showing relationship between Total Profits and Profit Margins</li>
+                        <li>Bar chart displaying Orders by Warehouse Code</li>
+                        <li>Pie chart illustrating Total Profits by Region</li>
+                        <li>Line graph showing Cumulative Total Profits over time by Product</li>
+                        <li>Detailed data table with key metrics by Region and Product</li>
+                    </ul><br>
+                    <p>Key Metrics Tracked:</p>
+                    <ul>
+                        <li>Total Sales</li>
+                        <li>Units Sold</li>
+                        <li>Total Profits</li>
+                        <li>Profit Margins</li>
+                        <li>Regional distribution</li>
+                        <li>Product category performance</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="tech6.jpg" alt="Problem visualization" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Challenges</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>These are the challenges encountered during the analysis</h3><br>
+                    <ul>
+                        <li>Data Integration: Combining data from multiple warehouses and regions</li>
+                        <li>Visual Clarity: Presenting complex data relationships clearly and intuitively</li>
+                        <li>Performance Optimization: Handling large datasets while maintaining dashboard responsiveness</li>
+                        <li>User Accessibility: Ensuring the dashboard is user-friendly for various stakeholders</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Solution</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Interactive Design:</h3>
+                    <ul>
+                        <li>Implemented filtering capabilities for detailed analysis</li>
+                        <li>Created a multi-view dashboard for different analytical perspectives</li>
+                        <li>Used color coding for easy product category identification</li>
+                        </ul>
+
+                    <h3>Data Architecture:</h3>
+                    <ul>
+                        <li>Structured data to show hierarchical relationships (Region > Product > Performance)</li>
+                        <li>Implemented hover functionality for detailed information access</li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <img src="Sales.jpeg" alt="Technical architecture diagram" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Projected Results & Impacts</h2>
+            <div class="two-column">
+                <div class="chart-container">
+                    
+                </div>
+                <div>
+                    <h3>Operational Efficiency:</h3>
+                    <ul>
+                        <li>15-20% reduction in inventory holding costs through better stock management</li>
+                        <li>Improved order fulfillment rates by identifying high-demand products</li>
+                    </ul>
+
+                    <h3>Financial Optimization:</h3>
+                    <ul>
+                        <li>Enhanced profit margins by identifying best-performing products and regions</li>
+                        <li>More accurate demand forecasting leading to optimized inventory levels</li>
+                    </ul>
+
+                        <h3>Strategic Decision Making:</h3>
+                    <ul>
+                        <li>Data-driven insights for regional expansion or consolidation</li>
+                        <li>Product portfolio optimization based on performance metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title">Lessons Learned</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Data Visualization Best Practices:</h3>
+                    <ul>
+                        <li>Using appropriate chart types for different data relationships</li>
+                        <li>Importance of consistent color coding for easy interpretation</li>
+                    </ul>
+
+                    <h3>User-Centric Design:</h3>
+                    <ul>
+                        <li>Necessity of balancing comprehensive data with visual clarity</li>
+                        <li>Value of interactive elements for deeper data exploration</li>
+                    </ul>
+
+                    <h3>Scalability Considerations:</h3>
+                    <ul>
+                        <li>Importance of designing for future data growth</li>
+                        <li>Need for regular performance optimization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Recommendations</h2>
+                        <h3>Short-term:</h3>
+                        <ul>
+                            <li>Implement automated alerts for low stock levels</li>
+                            <li>Add trend analysis features for predictive insights</li>
+                        </ul>
+
+                        <h3>Long-term:</h3>
+                        <ul>
+                            <li>Integrate machine learning for demand forecasting</li>
+                            <li>Develop mobile-optimized version for on-the-go access</li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+    </div>
+</body>
+</html>
